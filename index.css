@@ -1,0 +1,70 @@
+:root{
+    --header:rgb(23, 74, 116);
+    --delete:firebrick;
+    --title:rgb(243, 239, 239);
+    --secondaryHeader:gainsboro;
+    --border:ghostwhite;
+    --borderDelete:grey;
+    --primary:darkgray;
+
+}
+
+header{
+    display: flex;
+    position: relative;
+    background-color: var(--header);
+    gap: 0.25%;
+}
+
+
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color: var(--title);
+    
+    flex-grow: 0.5;
+    
+}
+input{
+    background-color: var(--secondaryHeader);
+    flex-grow: 0.2;
+}
+
+button{
+    border-color: var(--borderDelete);
+    border-radius: 10%;
+    border-width: 2px;
+    padding: 10px;
+    background-color: var(--delete);
+    color: var(--secondaryHeader);
+    margin-left: 1%;
+}
+
+header button{
+    background-color: var(--header);
+    flex-grow: 0.2;
+    border-color: var(--border) ;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 5px;
+    color: var(--secondaryHeader);
+}
+
+
+
+header button:hover{
+    background-color: svar(--secondaryHeader);
+    color: var(--header);
+
+}
+
+button:hover{
+    background-color: var(--secondaryHeader);
+    color: var(--delete);
+}
+
+
+body{
+    text-align: center;
+    background-color: var(--primary) ;
+}
