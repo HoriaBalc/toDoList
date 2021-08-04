@@ -5,7 +5,7 @@
     --secondaryHeader:gainsboro;
     --border:ghostwhite;
     --borderDelete:grey;
-    --primary:darkgray;
+    --primary:rgb(199, 199, 199);
 
 }
 
@@ -67,4 +67,14 @@ button:hover{
 body{
     text-align: center;
     background-color: var(--primary) ;
+}
+
+div{
+    font-size: 1.3rem;
+}
+
+.card{
+    border: 1px solid aqua;
+    margin-bottom: 10px;
+    padding: 10px;
 }
