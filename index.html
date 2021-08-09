@@ -9,9 +9,16 @@
     <title>To do List</title>
 </head>
 <body>
-    <header><h1>TO DO LIST</h1><input type="search" placeholder="Things to do"> <button >Add</button></header>
-    
-  
+    <header><h1>TO DO LIST</h1><input type="search" placeholder="Things to do"> <button >Add</button>
+      <div class="dropdown">
+        <button onclick="showBtns()" class="dropbtn">Dropdown</button>
+        <div id="myDropdown" class="dropdown-content">
+          <button onclick="chooseTheme(1)">Theme1</button>
+          <button onclick="chooseTheme(2)">Theme2</button>
+          <button onclick="chooseTheme(3)">Theme3</button>
+        </div>
+      </div>
+    </header>
  
   <ul type="none">
 

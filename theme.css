@@ -1,0 +1,12 @@
+:root{ 
+    --primary:rgb(199, 199, 199);
+    --header:rgb(23, 74, 116);
+    --title:rgb(243, 239, 239);
+    --secondaryHeader:gainsboro;
+    
+    --delete:firebrick;
+    --border:ghostwhite;
+    --borderDelete:grey;
+    
+
+}

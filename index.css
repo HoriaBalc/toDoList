@@ -1,14 +1,4 @@
-:root{
-    --header:rgb(23, 74, 116);
-    --delete:firebrick;
-    --title:rgb(243, 239, 239);
-    --secondaryHeader:gainsboro;
-    --border:ghostwhite;
-    --borderDelete:grey;
-    --primary:rgb(199, 199, 199);
-
-}
-
+@import "./theme.css";
 header{
     display: flex;
     position: relative;
@@ -71,6 +61,27 @@ body{
 
 div{
     font-size: 1.3rem;
+}
+
+.dropdown-content {
+    
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+.show {
+    background-color: var(--header);
+    display: flex;
+    flex-direction: column;        
 }
 
 .card{
