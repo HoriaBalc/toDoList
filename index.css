@@ -89,3 +89,26 @@ div{
     margin-bottom: 10px;
     padding: 10px;
 }
+
+
+#box{
+    height: 50px;
+    width: 50px;
+    background-color: brown;
+    transition: 1.5s all ease;
+}
+
+.active{
+    transform: translate(200px);
+}
+
+#containerBox{
+    display: flex;
+    flex-direction: row;
+}
+
+#containerBox div{
+    height: 20px;
+    width: 20px;
+    background-color: aqua;
+}

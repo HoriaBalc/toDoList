@@ -1,98 +1,82 @@
+/// TO DO LIST //////////////////////////////////////
 const input = document.querySelector("input");
 const button = document.querySelector("button");
 var list = document.querySelector("ul");
-var stringList=new Array();
 button.addEventListener('click', () => {
-    const textValue = input.value;
-    let isInList = false;
-    const listElement = document.createElement("LI");
-    const buttonDelete = document.createElement("button");
-    buttonDelete.innerText = "Delete";
-    
-    if (textValue != "") {
-        var liItems = list.querySelectorAll("LI");
-        liItems.forEach(function (userItem) {
-            if (userItem.getAttribute("data-value") === textValue)
-                isInList = true;
-        });
-
-        if (!isInList) {
-            listElement.setAttribute("data-value", textValue);
-            listElement.append(textValue, buttonDelete);
-            //stringList=localStorage.getItem('stringList');
-           
-            //stringList.push(textValue);
-            //console.log(stringList);
-            
-            list.appendChild(listElement);
-            //localStorage.setItem('stringList', stringList);
-            localStorage.setItem('ulEl', ulEl);
-            buttonDelete.addEventListener('click', () => {
-                //localStorage.remove();
-                
-                //stringList.pop();
-                //console.log(stringList);
-               
-                //localStorage.setItem('stringList', stringList);
-            })
-        }
-    }
-
-})
-
-/*var listToDo =localStorage.getItem('stringList');
-function initList(){
-        const buttonDelete = document.createElement("button");
+        const textValue = input.value;
+        let isInList = false;
         const listElement = document.createElement("LI");
+        const buttonDelete = document.createElement("button");
         buttonDelete.innerText = "Delete";
 
-    
-   for(var i=0;i<listToDo.length;i++){ 
+        if (textValue != "") {
+            var liItems = list.querySelectorAll("LI");
+            liItems.forEach(function(userItem) {
+                if (userItem.getAttribute("data-value") === textValue)
+                    isInList = true;
+            });
 
-        listElement.append(listToDo[i], buttonDelete);
-        list.appendChild(listElement);
-          
-       
-   } 
-   buttonDelete.addEventListener('click', () => {
-            //localStorage.remove();
-           
-            listToDo.pop(); 
-            listElement.remove();
-            console.log(listToDo);
-            localStorage.setItem('stringList', listToDo);
+            if (!isInList) {
+                listElement.setAttribute("data-value", textValue);
+                listElement.append(textValue, buttonDelete);
+
+
+                list.appendChild(listElement);
+
+                buttonDelete.addEventListener('click', () => {
+                    listElement.remove();
+
+                })
+            }
+        }
+
+    })
+    ///////////////
+
+fetch('http://skyscraprzceresapp.azurewebsites.net/Login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+            email: "user@example.com",
+            password: "string"
         })
-}
-initList();
-*/
+    }).then(res => {
+        return res.json()
+    }).then(data => console.log(data))
+    .catch(error => {
+        console.log('Error');
+    })
 
+///ALEGERE DE THEME CU LOCAL STORAGE//////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////
-
-const THEME1={
-    'primary':'rgb(199, 199, 199)',
-    'header':'rgb(23, 74, 116)',
-    'title':'rgb(243, 239, 239)',
-    'secondaryHeader':'gainsboro',
-}
-
-const THEME2={
-    'primary':'#2a9d8f',
-    'header':'#264653',
-    'title':'#e9c46a',
-    'secondaryHeader':'#f4a261',
+const THEME1 = {
+    'primary': 'rgb(199, 199, 199)',
+    'header': 'rgb(23, 74, 116)',
+    'title': 'rgb(243, 239, 239)',
+    'secondaryHeader': 'gainsboro',
 }
 
-const THEME3={
-    'primary':'#84a98c',
-    'header':'#2f3e46',
-    'title':'#52796f',
-    'secondaryHeader':'#cad2c5',
+const THEME2 = {
+    'primary': '#2a9d8f',
+    'header': '#264653',
+    'title': '#e9c46a',
+    'secondaryHeader': '#f4a261',
 }
 
-const  dropBtn=document.getElementsByClassName('dropbtn');
-const dropContent=document.getElementById("myDropdown");
-function showBtns(){
+const THEME3 = {
+    'primary': '#84a98c',
+    'header': '#2f3e46',
+    'title': '#52796f',
+    'secondaryHeader': '#cad2c5',
+}
+
+const dropBtn = document.getElementsByClassName('dropbtn');
+const dropContent = document.getElementById("myDropdown");
+
+function showBtns() {
     dropContent.classList.toggle("show");
 }
 const setTheme = theme => {
@@ -107,25 +91,25 @@ const setTheme = theme => {
 
 }
 
-function chooseTheme(nrTheme){
-var buttons = dropContent.querySelectorAll("button");
-var theme;
+function chooseTheme(nrTheme) {
+    var buttons = dropContent.querySelectorAll("button");
+    var theme;
 
-/*for(var i=0;i<buttons.length;i++){
-    if(nrTheme==i)
-        theme=themes[i];
-}*/
-        if (nrTheme == 1){
-            theme= THEME1;
-        }
-        if (nrTheme== 2){   
-            theme= THEME2;    
-        }
-        if (nrTheme == 3){
-            theme= THEME3;               
-        }
-        setTheme(theme);
-        localStorage.setItem('Theme', nrTheme);
+    /*for(var i=0;i<buttons.length;i++){
+        if(nrTheme==i)
+            theme=themes[i];
+    }*/
+    if (nrTheme == 1) {
+        theme = THEME1;
+    }
+    if (nrTheme == 2) {
+        theme = THEME2;
+    }
+    if (nrTheme == 3) {
+        theme = THEME3;
+    }
+    setTheme(theme);
+    localStorage.setItem('Theme', nrTheme);
 }
 
 const initTheme = () => {
@@ -137,16 +121,86 @@ const initTheme = () => {
 
 initTheme();
 
+///ANIMATII CU TIMER /////////////////////////////////////////////////////
 
+/*const start=document.querySelector("#start");
+const stop=document.querySelector("#stop");
+const box=document.querySelector('#box');
+let id=null;
+start.addEventListener('click',() =>{
+  
 
+    id=setInterval(() =>{
+        box.classList.toggle('active');
+    },1000)
 
+});
+stop.addEventListener('click',()=>{
+    clearInterval(id);
 
+})*/
 
+///Easy Assignment/////////////////////////////////////////////////////////////
+const beginBtn = document.querySelector("#beginBtn");
+const box1 = document.querySelector("#box1");
+const box2 = document.querySelector("#box2");
+const box3 = document.querySelector("#box3");
+const box4 = document.querySelector("#box4");
+const box5 = document.querySelector("#box5");
+const box6 = document.querySelector("#box6");
+let id = null;
+let count = 0;
+beginBtn.addEventListener('click', () => {
+    id = setInterval(() => {
+        count += 200;
+        if (count >= 5000) {
+            clearInterval(id);
+        } else {
+            box1.innerHTML = Math.floor(Math.random() * 10);
+            box2.innerHTML = Math.floor(Math.random() * 10);
+            box3.innerHTML = Math.floor(Math.random() * 10);
+            box4.innerHTML = Math.floor(Math.random() * 10);
+            box5.innerHTML = Math.floor(Math.random() * 10);
+            box6.innerHTML = Math.floor(Math.random() * 10);
+        }
+    }, 200);
 
+});
 
+/// Hard Assigment////////////////////////////////////////////////////////////////
+const inputText = document.querySelector("#input");
+let newInput = "";
+let i = 0;
+let isChanged = true;
 
+function verifyInput() {
+    if (inputText.value != "" && isChanged) {
+        console.log(inputText.value);
+        setTimeout(changeInputContent, 1000);
+        //changeInputContent();
+    }
+    //setTimeout(alert(newInput),2000);
+}
 
-/////////////////////////////////////////////////////////////  
+function changeInputContent() {
+    if (inputText.value == newInput) {
+        console.log(newInput);
+        isChanged = false
+        alertMe();
+
+    } else {
+        newInput = inputText.value;
+    }
+}
+
+function alertMe() {
+    alert(newInput);
+}
+
+verifyId = setInterval(verifyInput, 2000);
+//clearInterval(verifyId);
+
+/// Carduri //////////////////////////////////////////////////////////  
 /*usersData=[
     {
         name:'Vasilica',
