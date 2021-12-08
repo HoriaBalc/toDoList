@@ -33,7 +33,7 @@ button.addEventListener('click', () => {
     })
     ///////////////
 
-fetch('http://skyscraprzceresapp.azurewebsites.net/Login', {
+fetch('https://skyscraprzceresapp.azurewebsites.net/Login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -49,6 +49,7 @@ fetch('http://skyscraprzceresapp.azurewebsites.net/Login', {
     .catch(error => {
         console.log('Error');
     })
+
 
 ///ALEGERE DE THEME CU LOCAL STORAGE//////////////////////////////////////////////////
 
