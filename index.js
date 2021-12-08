@@ -35,6 +35,7 @@ button.addEventListener('click', () => {
 
 fetch('https://skyscraprzceresapp.azurewebsites.net/Login', {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json'
         },
